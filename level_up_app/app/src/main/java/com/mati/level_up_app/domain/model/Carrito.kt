@@ -1,0 +1,18 @@
+package com.mati.level_up_app.domain.model
+
+class Carrito(
+    val items: List<ItemCarrito> = emptyList()
+)
+{
+    // Cantidad total de items en el carrito
+    val cantidadTotal: Int
+        get() = items.sumOf { it.cantidad }
+
+    // Precio total del carrito
+    val precioTotal: Double
+        get() = items.sumOf { it.subtotal }
+
+    // Verifica si el carrito está vacío
+    val estaVacio: Boolean
+        get() = items.isEmpty()
+}
